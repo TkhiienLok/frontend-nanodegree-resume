@@ -47,7 +47,8 @@ var education = {"schools": [{"name":"KhNPU of G.S.Scovoroda",
 var project = {"projects":[{
                             "title":"Web Application for my CV",
                             "description":"Application was built with Flask and deployed on heroku.com.",
-                            "link":"https://appformycv.herokuapp.com/"}]};
+                            "link":"https://appformycv.herokuapp.com/",
+                            "image":"images/portfoliopic.jpg"}]};
 
 formattedPic = HTMLbioPic.replace("%data%", bio.picture)
 formattedName = HTMLheaderName.replace("%data%", name);
@@ -102,8 +103,10 @@ function displayProjects(){
         formattedTitle = HTMLprojectTitle.replace("%data%", project.projects[proj].title);
         formattedDescription = HTMLprojectDescription.replace("%data%", project.projects[proj].description);
         formattedTitle = formattedTitle.replace("#", project.projects[proj].link);
+        formattedImage = HTMLprojectImage.replace("%data%", project.projects[proj].image)
         $(".project-entry:last").append(formattedTitle);
         $(".project-entry:last").append(formattedDescription);
+        $(".project-entry:last").append(formattedImage);
 
     }
 }
