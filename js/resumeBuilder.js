@@ -11,7 +11,7 @@ var bio = {"name": "Lok",
                        "github":"TkhiienLok",
                        "location":"Kharkiv, UA"},
            "picture":"images/profile_pic.jpg",
-           "welcomeMsg":"Hi, I am a Junior Developer, have 2 year experience in Python."};
+           "welcomeMsg":"Hi, I am a Junior Developer, this is my resume site."};
 bio.city = "Kharkiv";
 
 var work = {"jobs":[{"position":"Programming Tutor",
@@ -40,13 +40,24 @@ var projects = {"projects":[{
                             "link":"https://appformycv.herokuapp.com/",
                             "images":["images/portfoliopic.jpg"]}]};
 
+function inName(name){
+    name = name.trim().split(' ');
+    console.log(name);
+    name[name.length - 1] = name[name.length - 1].toUpperCase();
+    name[0] = name[0].slice(0,1).toUpperCase()+ name[0].slice(1).toLowerCase();
+    console.log(name.join(' '));
+    return name.join(' ');}
 
 bio.display = function (){
 //    $("#header").append(HTMLcontactGeneric);
     formattedName = HTMLheaderName.replace("%data%", name);
     formattedRole = HTMLheaderRole.replace("%data%", role);
+    $("#header").prepend(internationalizeButton);
+//    $("#international").click(bio.inName(name));
+    document.querySelector("button").click(inName(name));
     $("#header").prepend(formattedRole);
     $("#header").prepend(formattedName);
+
 
     formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
@@ -56,6 +67,9 @@ bio.display = function (){
     $("#header").append(formattedEmail);
     $("#header").append(formattedGithub);
     $("#header").append(formattedLocation);
+
+    formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
+    $("#header").append(formattedMessage);
 
     formattedPic = HTMLbioPic.replace("%data%", bio.picture);
     $("#header").append(formattedPic);
@@ -69,6 +83,7 @@ bio.display = function (){
     }
 
 }
+
 
 work.display = function(){
     for (job in work.jobs){
@@ -134,17 +149,11 @@ work.display();
 projects.display();
 education.display();
 
-function inName(name){
-    name = name.trim().split(' ');
-    console.log(name);
-    name[name.length - 1] = name[name.length - 1].toUpperCase();
-    name[0] = name[0].slice(0,1).toUpperCase()+ name[0].slice(1).toLowerCase();
-    console.log(name.join(' '));
-    return name.join(' ');}
+//$("#mapDiv").append(googleMap);
 
-$("#main").append(internationalizeButton);
-//$("#international").click(inName(name));
-document.querySelector("button").click(inName(name));
+
+
+
 
 
 
