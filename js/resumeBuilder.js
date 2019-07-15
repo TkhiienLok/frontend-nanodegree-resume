@@ -9,22 +9,22 @@ var bio = {"name": "Lok",
            "contacts":{"mobile":"38(096)936-48-91",
                        "email":email,
                        "github":"TkhiienLok",
-                       "location":"Kharkiv, UA"},
+                       "location":"Kharkiv"},
            "picture":"images/profile_pic.jpg",
            "welcomeMsg":"Hi, I am a Junior Developer, this is my resume site."};
-bio.city = "Kharkiv";
+bio.location = "Kharkiv";
 
 var work = {"jobs":[{"position":"Programming Tutor",
                      "employer":"IT-Univer",
                      "years":"2016 - 2019",
-                     "location":"Kharkiv, UA",
+                     "location":"Харьков",
                      "description":"Teaching high/middle school students programming using Python."}]};
 
 var education = {"schools": [{"name":"KhNPU of G.S.Scovoroda",
                               "years":"2013 - 2017",
                               "degree":"Bachelor",
                               "majors":"Computer Science",
-                              "city":"Kharkiv"}],
+                              "location":"Kharkiv"}],
 
                  "onlineCourses": [{"title":"JavaScript Basics",
                                    "school":"udacity"},
@@ -123,7 +123,7 @@ education.display = function(){
         formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
         formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
         formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
-        formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].city);
+        formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
         formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors)
         $(".education-entry:last").append(formattedName);
         $(".education-entry:last").append(formattedDegree);
